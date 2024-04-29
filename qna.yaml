@@ -1,0 +1,64 @@
+domain: information_technology
+created_by: HunterGerlach
+seed_examples:
+- answer: |
+    InstructLab 🐶 uses a novel synthetic data-based alignment tuning method for
+    Large Language Models (LLMs.) The "lab" in InstructLab 🐶 stands for
+    Large-Scale Alignment for ChatBots [1].
+  question: What is InstructLab?
+- answer: |
+    To install and start using InstructLab on your machine, do the following:
+      - Create a new directory called instructlab to store the files the ilab CLI needs when running and
+        cd into the directory by running the following command:
+        - mkdir instructlab
+        - cd instructlab
+      - Install and activate your venv environment by running the following command:
+        - python3 -m venv venv
+        - source venv/bin/activate
+        - pip install git+https://github.com/instructlab/instructlab.git@stable
+      - From your venv environment, verify ilab is installed correctly, by running the ilab command.
+        - ilab
+      - Initialize ilab by running the following command:
+        - ilab init
+      - Run the ilab downloadcommand.
+        - ilab download
+      - Serve the model by running the following command:
+        - ilab serve
+      - Because you're serving the model in one terminal window, you will have to create a new window
+        and re-activate your Python virtual environment to run ilab chat command:
+        - source venv/bin/activate
+        - ilab chat
+  question: How can I get started with InstructLab on my computer?
+- answer: |
+    Participating in the InstructLab project can come by contributing to any one of the repositories.
+    Help on open source projects is always welcome and there is always something that can be improved.
+  question: How can I contribute to InstructLab?
+- answer: |
+    The project spawned from a paper published on March 6th, 2024 by the
+    MIT-IBM Watson AI Lab and IBM Research teams that explored the impact of
+    using synthetic data to align large language models for chatbots.
+  question: What is the origin of InstructLab?
+- answer: |
+    Perform the following steps to train a new model:
+      - Generate synthetic data
+        - ilab generate --num-instructions 25 # 25 is simply an example
+          - Usually we recommend more samples (e.g. 100).
+      - Update model via LoRA training
+        - Perform Q-LoRA for 100 iterations...
+        - ilab train --iters 100 # 100 is for demo purposes
+      - Check before/after behavior
+        - ilab test
+      - Interact with updated model
+        - Convert updated model to GGUF
+        - ilab convert --model-dir instructlab-merlinite-7b-lab-mlx-q
+      - Serve updated model and chat
+        - ilab serve --model-path instructlab-merlinite-7b-lab-mlx-q-fused-pt/*-Q4_K_M.gguf & \
+          ilab chat
+      - Confirm the results
+  question: How do you add knowledge to the model?
+task_description: 'Knowledge and information about the InstructLab project'
+document:
+ repo: https://github.com/HunterGerlach/instructlab-knowledge
+ commit: 0fb155f7869ada71931b8dff22c09d94633e47ed
+ patterns:
+ - '.*\.md$'
